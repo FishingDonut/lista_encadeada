@@ -7,11 +7,11 @@ int main(){
 
     movies.init();
 
-    movies.addEnd("clube da luta");
-    movies.addEnd("piratas pirado");
-    movies.addEnd("memento");
-    movies.addEnd("spider man movie");
-    movies.addEnd("monty python");
+    movies.addLast("clube da luta");
+    movies.addLast("piratas pirado");
+    movies.addLast("memento");
+    movies.addLast("spider man movie");
+    movies.addLast("monty python");
 
     // movies.showCres();
     

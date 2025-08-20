@@ -21,7 +21,7 @@ struct Data
     }
 
     // verifica se e o ultimo
-    bool isEnd()
+    bool isLast()
     {
         return next == nullptr;
     }
@@ -40,7 +40,7 @@ struct Data
     }
 
     //pega o ultimo
-    Data<T> *getEnd()
+    Data<T> *getLast()
     {
         Data<T> *aux = this;
 
@@ -54,7 +54,7 @@ struct Data
 
     //procura pelo elo de acordo com o valor
     Data<T> *seekElo(T value_seek){
-        Data<T> *aux = getEnd();
+        Data<T> *aux = getLast();
 
         while(aux->value != value_seek){
             aux = aux->next;
@@ -64,12 +64,12 @@ struct Data
     }
 
     // adiciona no fim
-    void addEnd(T value)
+    void addLast(T value)
     {
         Data<T> *data = new Data<T>();
         data->init();
 
-        Data<T> *aux = getEnd();
+        Data<T> *aux = getLast();
 
         data->previous = aux;
         data->value = value;
@@ -107,7 +107,7 @@ struct Data
     // mostrar em ordem desc
     void showDesc()
     {
-        Data *aux = getEnd();
+        Data *aux = getLast();
         while (aux != nullptr)
         {
             std::cout << aux->value << std::endl;
@@ -116,7 +116,7 @@ struct Data
     }
 
     void removeEnd(){
-        Data *aux = getEnd();
+        Data *aux = getLast();
 
         aux->previous->next = nullptr;
         aux->init();
