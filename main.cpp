@@ -3,21 +3,33 @@
 
 int main(){
 
-    Data<std::string> movies{"setimo selo", nullptr, nullptr};
+    Data<std::string> movies{"a", nullptr, nullptr};
 
     movies.init();
 
-    movies.addLast("clube da luta");
-    movies.addLast("piratas pirado");
-    movies.addLast("memento");
-    movies.addLast("spider man movie");
-    movies.addLast("monty python");
+    movies.addLast("b");
+    movies.addLast("c");
+    movies.addLast("d");
+    movies.addLast("e");
+    movies.addLast("f");
 
-    // movies.showCres();
-    
-    movies.removeEnd();
-    
-    movies.showDesc();
+    Data<std::string> movies2{"a", nullptr, nullptr};
 
+    movies2.init();
+
+    movies2.addLast("b");
+    movies2.addLast("z"); 
+    movies2.addLast("d");
+    movies2.addLast("e");
+    movies2.addLast("f");
+
+    bool a = movies.similar(movies2);
+
+    if(a){
+        std::cout << "true";
+    } else {
+        std::cout << "false";
+    }
+    
     return 0;
 }

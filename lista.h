@@ -53,7 +53,7 @@ struct Data
     }
 
     //procura pelo elo de acordo com o valor
-    Data<T> *seekElo(T value_seek){
+    Data<T> *seekData(T value_seek){
         Data<T> *aux = getLast();
 
         while(aux->value != value_seek){
@@ -75,7 +75,7 @@ struct Data
         data->value = value;
         aux->next = data;
 
-        std::cout << "Add value: " << value << std::endl;
+        // std::cout << "Add value: " << value << std::endl;
     }
 
     // adiciona no comeco
@@ -115,6 +115,7 @@ struct Data
         }
     }
 
+    // tira o ultimo
     void removeEnd(){
         Data *aux = getLast();
 
@@ -122,5 +123,34 @@ struct Data
         aux->init();
 
         delete aux;
+    }
+
+    int len(){
+        Data *aux = getFirts();
+        int i = 0;
+
+        while(aux->next != nullptr){
+            aux = aux->next;
+            i++;
+        }
+
+        return i;
+    }
+
+    bool similar(Data data){
+        Data *aux = getFirts();
+        Data *aux_seek = data->getFirts();
+        
+        while (aux != nullptr)
+        {
+            if(aux->value != aux_seek->value){
+                return false;
+            }
+            
+            aux = aux->next;
+            aux_seek = aux_seek->next;
+        }
+
+        return true;
     }
 };
